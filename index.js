@@ -1,4 +1,4 @@
-const token = "2050024625:AAGawaBHuUfOzWJsOrGRgnUmoQMrn475sy8";
+const token = process.env.BOT_TOKEN;
 const Songs = require("./models/songs");
 const {
     INFO_TEXT,
