@@ -7,8 +7,8 @@ const {
 
 
 const mongoose = require("mongoose");
-
 const botCreator = require("node-telegram-bot-api");
+
 
 let start = () => {
     const bot = new botCreator(token, {polling: true});
@@ -17,6 +17,8 @@ let start = () => {
     let enterName = false;
     let enterTonality = false;
     let enterLink = false;
+
+    let counter = 0;
 
     //   info
     bot.onText(/\/info/, async msg => {
@@ -27,6 +29,11 @@ let start = () => {
     bot.onText(/\/addSong/, async (msg) => {
         bot.sendMessage(msg.chat.id, "Enter the name of song");
         enterName = true;
+    })
+
+    bot.onText(/\/count/, async (msg, match) => {
+        counter++;
+        bot.sendMessage(msg.chat.id, counter);
     })
 
 
